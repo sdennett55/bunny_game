@@ -1,0 +1,14 @@
+{
+  "name": "bunny_game",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sdennett55/bunny_game.git",
+  "author": "sdennett55@gmail.com <sdennett55@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "gh-pages -d src"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
+  }
+}
