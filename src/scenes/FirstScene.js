@@ -20,11 +20,11 @@ export default class FirstScene extends Phaser.Scene {
   snakes;
 
   preload() {
-    this.load.image('rabbit', '../../assets/rabbit.png');
-    this.load.image('sky', '../../assets/sky.png');
-    this.load.image('ground', '../../assets/ground.png');
-    this.load.image('carrot', '../../assets/carrot.png');
-    this.load.image('snake', '../../assets/snake.png');
+    this.load.image('rabbit', '../assets/rabbit.png');
+    this.load.image('sky', '../assets/sky.png');
+    this.load.image('ground', '../assets/ground.png');
+    this.load.image('carrot', '../assets/carrot.png');
+    this.load.image('snake', '../assets/snake.png');
   }
 
   create() {
