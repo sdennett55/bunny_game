@@ -74,6 +74,14 @@ export default class FirstScene extends Phaser.Scene {
       key: 'elmer-fudd',
     });
 
+    this.elmerFudd.children.iterate(child => {
+      child.setOrigin(0);
+      child.setScale(.5);
+      child.setVelocityY(0);
+      child.x = Phaser.Math.FloatBetween(0, 547);
+      child.y = Phaser.Math.FloatBetween(-100, -1000);
+    });
+
     this.snakes.children.iterate(snake => {
       snake.setOrigin(0);
       snake.setScale(.2);
@@ -125,7 +133,7 @@ export default class FirstScene extends Phaser.Scene {
     })
 
     this.elmerFudd.children.iterate(child => {
-      if (this.score % 10 === 0) {
+      if (this.score % 10 === 0 && (child.y < 0 || child.y > this.scale.height)) {
         child.setOrigin(0);
         child.setScale(.5);
         child.setVelocityY(0);
