@@ -49,7 +49,8 @@ export default class FirstScene extends Phaser.Scene {
     });
 
     this.carrots.children.iterate(carrot => {
-      carrot.x = Phaser.Math.FloatBetween(0, 550);
+      carrot.setOrigin(0);
+      carrot.x = Phaser.Math.FloatBetween(0, 522);
       carrot.y = Phaser.Math.FloatBetween(-100, -1000);
     });
 
@@ -67,8 +68,9 @@ export default class FirstScene extends Phaser.Scene {
     });
 
     this.snakes.children.iterate(snake => {
+      snake.setOrigin(0);
       snake.setScale(.2);
-      snake.x = Phaser.Math.FloatBetween(0, 550);
+      snake.x = Phaser.Math.FloatBetween(0, 543);
       snake.y = Phaser.Math.FloatBetween(-100, -1000);
     });
 
@@ -91,23 +93,25 @@ export default class FirstScene extends Phaser.Scene {
     }
 
     this.carrots.children.iterate(child => {
-      if (child.y > this.scale.width) {
+      if (child.y > this.scale.height) {
+        child.x = Phaser.Math.FloatBetween(0, 522);
         child.y = Phaser.Math.FloatBetween(-100, -1000);
         child.setVelocityY(0);
       }
       if (child.active === false) {
-        child.enableBody(true, Phaser.Math.FloatBetween(0, 550), Phaser.Math.FloatBetween(-100, -1000), true, true);
+        child.enableBody(true, Phaser.Math.FloatBetween(0, 522), Phaser.Math.FloatBetween(-100, -1000), true, true);
         child.setVelocityY(0);
       }
     })
 
     this.snakes.children.iterate(child => {
-      if (child.y > this.scale.width) {
+      if (child.y > this.scale.height) {
+        child.x = Phaser.Math.FloatBetween(0, 543);
         child.y = Phaser.Math.FloatBetween(-100, -1000);
         child.body.setVelocityY(this.score * 7);
       }
       if (child.active === false) {
-        child.enableBody(true, Phaser.Math.FloatBetween(0, 550), Phaser.Math.FloatBetween(-100, -1000), true, true);
+        child.enableBody(true, Phaser.Math.FloatBetween(0, 543), Phaser.Math.FloatBetween(-100, -1000), true, true);
         child.setVelocityY(0);
       }
     })
