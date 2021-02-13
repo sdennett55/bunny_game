@@ -19,15 +19,12 @@ export default class FirstScene extends Phaser.Scene {
 
   snakes;
 
-  elmerFudd;
-
   preload() {
     this.load.image('rabbit', 'assets/rabbit.png');
     this.load.image('sky', 'assets/sky.png');
     this.load.image('ground', 'assets/ground.png');
     this.load.image('carrot', 'assets/carrot.png');
     this.load.image('snake', 'assets/snake.png');
-    this.load.image('elmer-fudd', 'assets/elmer-fudd.png');
   }
 
   create() {
@@ -70,18 +67,6 @@ export default class FirstScene extends Phaser.Scene {
       repeat: 3,
     });
 
-    this.elmerFudd = this.physics.add.group({
-      key: 'elmer-fudd',
-    });
-
-    this.elmerFudd.children.iterate(child => {
-      child.setOrigin(0);
-      child.setScale(.5);
-      child.setVelocityY(0);
-      child.x = Phaser.Math.FloatBetween(0, 547);
-      child.y = Phaser.Math.FloatBetween(-100, -1000);
-    });
-
     this.snakes.children.iterate(snake => {
       snake.setOrigin(0);
       snake.setScale(.2);
@@ -90,7 +75,6 @@ export default class FirstScene extends Phaser.Scene {
     });
 
     this.physics.add.overlap(this.player, this.snakes, this.getDead, null, this);
-    this.physics.add.overlap(this.player, this.elmerFudd, this.getDead, null, this);
   }
 
   update() {
@@ -131,16 +115,6 @@ export default class FirstScene extends Phaser.Scene {
         child.setVelocityY(0);
       }
     })
-
-    this.elmerFudd.children.iterate(child => {
-      if (this.score % 10 === 0 && (child.y < 0 || child.y > this.scale.height)) {
-        child.setOrigin(0);
-        child.setScale(.5);
-        child.setVelocityY(0);
-        child.x = Phaser.Math.FloatBetween(0, 547);
-        child.y = Phaser.Math.FloatBetween(-100, -1000);
-      }
-    });
   }
 
   eatCarrot(player, carrots) {

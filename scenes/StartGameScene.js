@@ -10,7 +10,6 @@ export default class StartGameScene extends Phaser.Scene {
     this.load.image('snake', 'assets/snake.png');
     this.load.image('carrot', 'assets/carrot.png');
     this.load.image('sky', 'assets/sky.png');
-    this.load.image('elmer-fudd', 'assets/elmer-fudd.png');
   }
 
   create() {
@@ -25,6 +24,8 @@ export default class StartGameScene extends Phaser.Scene {
     this.add.image(522, 530, 'carrot').setOrigin(0);
 
     this.add.image(0, 0, 'carrot').setOrigin(0);
+
+    
 
     this.add.text(width * .5, height * .5 - 50, `Bunny Game`, {
       fontSize: 48,
